@@ -7,14 +7,12 @@ import About from './pages/About';
 import Logout from './pages/Logout';
 import './App.css'
 import './index.css'
-import NavBar from './components/navbar'
 import Admin from './components/Admin'
 
 function App() {
   return (
     <> 
     <BrowserRouter>
-    <NavBar />
     <Routes>
       <Route> 
       {/* <Route path="/Nav" element={}></Route> */}
