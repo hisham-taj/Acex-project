@@ -1,6 +1,10 @@
-import React from 'react';
+
+import React, { useState } from 'react';
+
 
 function Login() {
+const [email,setEmail]=useState('')
+const [password,setPassword]=useState('')
   return (
     <div className=" w-full h-screen bg-cover bg-center bg-[url('/images/bg-1.png')] flex items-center justify-center">
        {/* Transparent box at the top for logo and text */}
@@ -47,3 +51,4 @@ function Login() {
 }
 
 export default Login;
+
