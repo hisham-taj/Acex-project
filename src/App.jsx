@@ -11,19 +11,22 @@ import Admin from './AdminComponents/Admin';
 
 function App() {
   return (
-    
-    <BrowserRouter>
 
-          <Routes>
-          <Route path="/Admin" element={<Admin />} />
-            <Route path="/Admin/dashboard" element={<Dashboard />} />
-            <Route path="/Admin/orders" element={<Orders />} />
-            <Route path="/Admin/customers" element={<Customers />} />
-            <Route path="/Admin/owner" element={<Owner />} />
-            <Route path="/Admin/signup" element={<SignUp />} />
-            <Route path="/Admin/login" element={<Login />} />
-            <Route path="/Admin/logout" element={<Logout />} />
-          </Routes>
+    <BrowserRouter>
+    <Routes>
+    <Route path="/admin/signup" element={<SignUp />} />
+        <Route path="/admin/login" element={<Login />} />
+        <Route path="/admin/logout" element={<Logout />} />
+    </Routes>
+      <Routes>
+        <Route path="/Admin" element={<Admin />} >
+          <Route path="dashboard" element={<Dashboard />} />
+          <Route path="orders" element={<Orders />} />
+          <Route path="customers" element={<Customers />} />
+          <Route path="owner" element={<Owner />} />
+    
+        </Route>
+      </Routes>
     </BrowserRouter>
   );
 }
