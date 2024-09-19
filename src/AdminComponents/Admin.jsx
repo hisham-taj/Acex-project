@@ -2,7 +2,7 @@ import React from 'react'
 import {Link} from 'react-router-dom'
 import axios from 'axios'
 
-import Sidebar from '../AdminPages/Sidebar'
+import Sidebar from '../adminPages/Sidebar'
 function Admin() {
    const functionz=()=>{
          
