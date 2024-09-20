@@ -6,7 +6,7 @@ function Login() {
 const [email,setEmail]=useState('')
 const [password,setPassword]=useState('')
   return (
-    <div className=" w-full h-screen bg-cover bg-center bg-[url('/images/bg-1.png')] flex items-center justify-center">
+    <div className=" w-full h-screen bg-cover bg-center  bg-[url('/images/bg-1.png')] flex items-center justify-center">
        {/* Transparent box at the top for logo and text */}
        <div className="absolute top-0 left-0 w-full bg-white bg-opacity-30 p-4 flex items-center justify-between">
         <div className="flex items-center">
