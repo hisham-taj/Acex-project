@@ -2,7 +2,7 @@ import React from "react";
 
 const Button = ({ text }) => {
   return (
-    <button className='w-[70%] h-[5vh] bg-red-500 text-white text-sm rounded-lg max-sm:w-[100%] max-sm:text-[13px]'>
+    <button className='w-[30%] h-[4vh] bg-red-700 text-white text-sm rounded-lg max-sm:w-[75%] max-sm:text-[10px] max-md:text-[13px] max-lg:w-[60%] hover:bg-black '>
       {text}
     </button>
   );
