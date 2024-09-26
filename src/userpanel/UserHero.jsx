@@ -7,6 +7,7 @@ import ProcessPage from './processpage';
 import Carousel from './Carousel';
 import ExpertModules from './expertmodule';
 import FaqPage from './faqpage';
+import FooterPage from './footer';
 
 const UserHero = () => {
     return (
@@ -19,6 +20,7 @@ const UserHero = () => {
             <Carousel />
             <ExpertModules />
             <FaqPage />
+            <FooterPage />
         </div>
     );
 }
