@@ -12,6 +12,10 @@ export default {
       lg : '976px',
       xl : '1440px'
     },
+    fontFamily:{
+      'serif': ['ui-serif, Georgia, Cambria, "Times New Roman", Times, serif'],
+    },
+
     extend: {colors:{
    'twitter-blue':'#1DA1F2'
     }},
