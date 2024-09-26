@@ -20,6 +20,7 @@ import ProcessPage from './userpanel/processpage';
 import Carousel from './userpanel/Carousel';
 import ExpertModules from './userpanel/expertmodule';
 import FaqPage from './userpanel/faqpage';
+import FooterPage from './userpanel/footer';
 
 
 function App() {
