@@ -1,6 +1,12 @@
-import React from 'react';
+import React, { useState } from 'react';
+import ServicesDropdown from './service';  // Import the ServicesDropdown component
+import CompanyDropdown from './company'; // Import the CompanyDropdown component
 
 const NavBar = () => {
+  const [isServicesOpen, setIsServicesOpen] = useState(false);
+  const [isCompanyOpen, setIsCompanyOpen] = useState(false);
+  const [no, setNO] = useState(false);
+
   return (
     <nav className="bg-white shadow-md">
       <div className="container mx-auto flex justify-between items-center py-4">
@@ -8,10 +14,36 @@ const NavBar = () => {
           <img src="/images/new_logo.png" alt="Logo" className="w-32" />
         </div>
 
-        <div className="flex space-x-8">
+        <div className="flex space-x-[120px]">
           <a href="#" className="text-blue-800 hover:text-blue-600">Home</a>
-          <a href="#" className="text-blue-800 hover:text-blue-600">Services</a>
-          <a href="#" className="text-blue-800 hover:text-blue-600">Company</a>
+
+          {/* Services Dropdown */}
+          <div className="relative">
+            <button
+              onMouseEnter={() => setIsServicesOpen(true)}
+              onClick={() => setNO(true)}
+              onMouseLeave={() => {
+                if (!no) setIsServicesOpen(false);
+              }}
+              className="text-blue-800 hover:text-blue-600"
+            >
+              Services
+            </button>
+            {isServicesOpen && <ServicesDropdown setIsServicesOpen={setIsServicesOpen} />}
+          </div>
+
+          {/* Company Dropdown */}
+          <div className="relative">
+            <button
+              onMouseEnter={() => setIsCompanyOpen(true)}
+              onMouseLeave={() => setIsCompanyOpen(false)}
+              className="text-blue-800 hover:text-blue-600"
+            >
+              Company
+            </button>
+            {isCompanyOpen && <CompanyDropdown setIsCompanyOpen={setIsCompanyOpen} />}
+          </div>
+
           <a href="#" className="text-blue-800 hover:text-blue-600">Blogs</a>
           <a href="#" className="text-blue-800 hover:text-blue-600">Pricing</a>
         </div>
@@ -29,7 +61,7 @@ const NavBar = () => {
           {/* Cart Option */}
           <div className="relative">
             <img
-              src="/images/cart-icon.png" // Ensure the path to your cart icon image is correct
+              src="/images/cart-icon.png"
               alt="Cart"
               className="w-8 h-8 cursor-pointer"
             />

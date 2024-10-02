@@ -21,12 +21,21 @@ import Carousel from './userpanel/Carousel';
 import ExpertModules from './userpanel/expertmodule';
 import FaqPage from './userpanel/faqpage';
 import FooterPage from './userpanel/footer';
+import SalientFeatures from './userpanel/review';
+import PlanDetails from './pricing/planDetails';
+import SubmitRequest from './request/submitRequest';
+import MonitorProgress from './request/monitorProgress';
+import ReceiveWork from './request/receivework';
 
 
 function App() {
   return (
 
     <BrowserRouter>
+      <Routes>
+
+        <Route path="/plan-details/:plan" element={<PlanDetails />} />
+      </Routes>
       <Routes>
         <Route path="/admin/signup" element={<SignUp />} />
         <Route path="/admin/login" element={<Login />} />
@@ -42,12 +51,18 @@ function App() {
       </Routes>
       <Routes>
         <Route path="/user" element={<Header />} >
-        <Route index element={<UserHero />} />
+          <Route index element={<UserHero />} />
           <Route path="mainbanner" element={<MainBanner />} />
           <Route path="price" element={<QuoteSection />} />
           <Route path="sidebar" element={<FloatingSidebar />} />
-          
+
         </Route>
+      </Routes>
+      <Routes>
+        <Route path="/request" element={<ProcessPage />} />
+        <Route path="/submitRequest" element={<SubmitRequest/>} />
+        <Route path="/monitorProgress" element={<MonitorProgress/>} />
+        <Route path="/receivework" element={<ReceiveWork/>} />
       </Routes>
     </BrowserRouter>
   );
