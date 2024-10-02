@@ -8,6 +8,8 @@ import Carousel from './Carousel';
 import ExpertModules from './expertmodule';
 import FaqPage from './faqpage';
 import FooterPage from './footer';
+import FeaturesSection from './review';
+import SalientFeatures from './review';
 
 const UserHero = () => {
     return (
@@ -19,6 +21,7 @@ const UserHero = () => {
             <ProcessPage />
             <Carousel />
             <ExpertModules />
+            <SalientFeatures />
             <FaqPage />
             <FooterPage />
         </div>
