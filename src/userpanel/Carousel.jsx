@@ -40,10 +40,10 @@ const CreativeCarousel = () => {
   };
 
   return (
-    <div className="relative w-full max-w-7xl mx-auto mt-12 p-6 bg-white rounded-lg shadow-2xl transform transition-all hover:scale-105">
+    <div className="relative w-full max-w-7xl mx-auto mt-12 p-6  text-[#3D52A0] rounded-lg shadow-2xl transform transition-all hover:scale-105">
       <div className="text-center mb-6">
-        <h2 className="text-4xl font-extrabold text-gray-800 mb-4">Explore Our Free Tools</h2>
-        <p className="text-gray-600 text-lg">Boost your academic performance with our powerful tools!</p>
+        <h2 className="text-4xl font-extrabold  mb-4">Explore Our Free Tools</h2>
+        <p className=" text-lg">Boost your academic performance with our powerful tools!</p>
       </div>
 
       {/* Carousel Content */}

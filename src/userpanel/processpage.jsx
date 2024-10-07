@@ -3,9 +3,9 @@ import { Link } from 'react-router-dom'; // Import Link from react-router-dom
 
 const ProcessPage = () => {
   return (
-    <div className="min-h-screen bg-white p-6">
+    <div className="min-h-screen bg-[#EEE7F6] p-6">
       {/* Header */}
-      <header className="text-center py-10 bg-white shadow-md">
+      <header className="text-center py-10 bg-[#CBD1FC] shadow-md">
         <h1 className="text-4xl font-bold text-gray-800">How We Make It Happen</h1>
         <p className="mt-3 text-xl text-gray-500">
           Your journey to success begins with us

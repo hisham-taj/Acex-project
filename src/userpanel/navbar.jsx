@@ -8,14 +8,14 @@ const NavBar = () => {
   const [no, setNO] = useState(false);
 
   return (
-    <nav className="bg-white shadow-md">
-      <div className="container mx-auto flex justify-between items-center py-4">
-        <div className="flex items-center">
-          <img src="/images/new_logo.png" alt="Logo" className="w-32" />
+    <nav className="bg-[#E6EBFF] text-black shadow-md  max-md:hidden">
+      <div className="container h-[12vh] max-md:h-[10vh] flex justify-between items-center py-4">
+        <div className="w-[10%] h-full max-md:hidden flex items-center">
+          <img src="/images/acex_logo_full-removebg-preview.png" alt="Logo" className="w-[70%]" />
         </div>
 
         <div className="flex space-x-[120px]">
-          <a href="#" className="text-blue-800 hover:text-blue-600">Home</a>
+          <a href="#" className="">Home</a>
 
           {/* Services Dropdown */}
           <div className="relative">
@@ -25,7 +25,7 @@ const NavBar = () => {
               onMouseLeave={() => {
                 if (!no) setIsServicesOpen(false);
               }}
-              className="text-blue-800 hover:text-blue-600"
+              className=""
             >
               Services
             </button>
@@ -37,24 +37,24 @@ const NavBar = () => {
             <button
               onMouseEnter={() => setIsCompanyOpen(true)}
               onMouseLeave={() => setIsCompanyOpen(false)}
-              className="text-blue-800 hover:text-blue-600"
+              className=""
             >
               Company
             </button>
             {isCompanyOpen && <CompanyDropdown setIsCompanyOpen={setIsCompanyOpen} />}
           </div>
 
-          <a href="#" className="text-blue-800 hover:text-blue-600">Blogs</a>
-          <a href="#" className="text-blue-800 hover:text-blue-600">Pricing</a>
+          <a href="#" className="">Blogs</a>
+          <a href="#" className="">Pricing</a>
         </div>
 
-        <div className="flex items-center space-x-4">
+        <div className="flex items-center space-x-4 max-md:hidden">
           <input
             type="text"
             placeholder="Search..."
             className="border rounded-md px-4 py-1 text-sm"
           />
-          <button className="bg-blue-700 text-white px-4 py-2 rounded-md hover:bg-blue-800">
+          <button className="bg-[#7191E6] text-white px-4 py-2 rounded-md hover:bg-blue-800">
             Login
           </button>
 
