@@ -11,13 +11,13 @@ const PricingSection = () => {
   };
 
   return (
-    <div className="bg-white py-16">
+    <div className="bg-gray-800 py-16">
       <div className="container mx-auto">
-        <h2 className="text-3xl font-semibold text-blue-900 text-center">Affordable Pricing</h2>
-        <p className="mt-4 text-gray-700 text-center">Choose a package that fits your budget.</p>
+        <h2 className="text-3xl font-semibold text-white text-center">Affordable Pricing</h2>
+        <p className="mt-4 text-white text-center">Choose a package that fits your budget.</p>
         <div className="mt-8 grid grid-cols-1 sm:grid-cols-3 gap-8">
           {/* Basic Plan */}
-          <div className="bg-blue-50 p-6 rounded-lg shadow-md">
+          <div className="bg-[#E8EDFF] p-6 rounded-lg shadow-md">
             <h3 className="text-xl font-bold text-blue-800">Basic</h3>
             <p className="text-lg mt-2">$49.99</p>
             <button
