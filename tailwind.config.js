@@ -11,13 +11,29 @@ export default {
     },
     fontFamily: {
       sans: ['Montserrat', '-apple-system', 'BlinkMacSystemFont', '"Segoe UI"', 'Roboto', '"Helvetica Neue"', 'Arial', 'sans-serif'],
+      heading: [ 'Bebas Neue',
+        '-apple-system',
+        'BlinkMacSystemFont',
+        '"Segoe UI"',
+        'Roboto',
+        'Oxygen-Sans',
+        'Ubuntu',
+        'Cantarell',
+        '"Helvetica Neue"',
+        'sans-serif',
+        'Apple Color Emoji',
+        '"Segoe UI Emoji"',
+        '"Segoe UI Symbol"',
+        '"Noto Color Emoji"',],
     },
 
     extend: {
       colors: {
         "twitter-blue": "#1DA1F2",
       },
-      
+      lineHeight: {
+        'custom': '1.15',
+      },
     },
   },
   plugins: [],
