@@ -1,17 +1,43 @@
-import React from 'react';
+import React from "react";
 
 const WhyAcex = () => {
+  const phone = "919544121458";
+
   return (
-    <div className="container mx-auto p-8 bg-[#EEE7F6] border-4 border-[#3D52A1] rounded-lg shadow-lg space-y-6 max-md:h-[80vh] ">
-      <h1 className="text-5xl font-extrabold text-[#3D52A1] mb-4 text-center drop-shadow-lg max-md:text-xl">
-        Why Acex?
-      </h1>
-      <p className="text-lg text-gray-800 leading-relaxed max-md:text-sm">
-        Acex is committed to providing the highest quality services tailored to meet the specific needs of our clients. Our expertise, innovative approaches, and dedicated team make us stand out as a leader in delivering exceptional solutions across various sectors.
-      </p>
-      <p className="text-lg text-gray-800 leading-relaxed  max-md:text-sm">
-        We believe that each client is unique, and our customized solutions reflect this philosophy. Our comprehensive range of services is designed to address your challenges effectively, ensuring that we not only meet your expectations but also help you achieve your goals. At Acex, we prioritize customer satisfaction, ensuring that our services contribute to your success and drive long-term value for your organization. Join us on a journey towards excellence, where your vision becomes our mission.
-      </p>
+    <div className="w-[100%] h-[70vh] max-md:50vh container mx-auto mt-5 bg-[#F3F3F3] flex items-center justify-center bg-no-repeat"
+    style={{
+      backgroundImage: `
+      url('/images/img_circle-additional-dark-016_wide.svg'),
+      url('/images/img_circle-dark_thin_big.svg'),
+      url('/images/img_circle-dark_thin_big.svg')
+    `,
+    backgroundSize: "50vh, 8vh, 48vh", 
+  backgroundPosition: "-15% 0%, 10% 1%, -10% 0%" 
+    }}>
+      <div className="w-[80%] h-[70%] flex flex-col">
+        <div className="w-full h-[30%]  flex items-end justify-center">
+          <h2 className="font-heading  sm:text-[20px] md:text-[30px] lg:text-[36px]  uppercase font-semibold">
+            Get in touch with us directly via WhatsApp for immediate assistance.
+          </h2>
+        </div>
+        <div className="w-full h-[40%] flex justify-center items-center">
+          <p className="mt-2 text-[14px] md:text-[18px] ">
+            Need help right away? Contact us on WhatsApp — we're available 24/7.
+          </p>
+        </div>
+        <div className="w-full h-[30%]  flex justify-center">
+          <a
+            href={`https://wa.me/${phone}}`} 
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <button className="w-[22vw] h-[50%] max-md:w-[32vw] max-md:text-[12px] md:text-[16px] bg-green-500 text-white font-heading font-semibold rounded-[20px] hover:bg-green-600 transition duration-200 flex overflow-hidden items-center justify-center ">
+             <span> Chat With Us</span>
+             <img className="w-[10%] max-md:w-[12%] m-3" src="/images/whatsapp-svgrepo-com (1).svg" alt="" />
+            </button>
+          </a>
+        </div>
+      </div>
     </div>
   );
 };

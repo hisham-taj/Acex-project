@@ -3,11 +3,11 @@ import { Link } from 'react-router-dom'; // Import Link from react-router-dom
 
 const ProcessPage = () => {
   return (
-    <div className="min-h-screen bg-[#EEE7F6] p-6">
+    <div className="min-h-screen  p-6">
       {/* Header */}
-      <header className="text-center py-10 bg-[#CBD1FC] shadow-md">
-        <h1 className="text-4xl font-bold text-gray-800">How We Make It Happen</h1>
-        <p className="mt-3 text-xl text-gray-500">
+      <header className="bg-[url('/images/img_circles-gray-02_wide.svg'),url('/images/img_graph.svg')] bg-no-repeat bg-[length:5vh,50vh] max-md:bg-[length:3vh,30vh] bg-[position:5%_90%,90%_90%] text-center py-10 bg-[#2D2D2C] text-white shadow-md">
+      <h1 className="text-4xl max-md:text-xl font-bold ">How We Make It Happen</h1>
+        <p className="mt-3 text-xl max-md:text-base ">
           Your journey to success begins with us
         </p>
       </header>

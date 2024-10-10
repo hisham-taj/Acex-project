@@ -19,11 +19,11 @@ const ExpandedModulesCovered = () => {
   ];
 
   return (
-    <div className="relative w-full max-w-7xl mx-auto mt-12 p-6 bg-gradient-to-b from-[#EEE7F6] to-[#D6DDFF]  rounded-lg shadow-lg">
+    <div className="relative w-full max-w-7xl mx-auto mt-12 p-6 bg-[#FFB800] bg-[url('images/bullseye-gradient.svg')] bg-[length:100%] bg-no-repeat rounded-lg shadow-lg">
       {/* Heading */}
       <div className="text-center mb-8">
-        <h2 className="text-3xl font-bold text-blue-900 mb-2">Modules Covered By Our Experts</h2>
-        <p className="text-blue-600 text-md ">We provide expert guidance across a wide variety of academic disciplines.</p>
+        <h2 className="text-3xl text-whit font-bold  mb-2">Modules Covered By Our Experts</h2>
+        <p className=" text-md ">We provide expert guidance across a wide variety of academic disciplines.</p>
       </div>
 
       {/* Modules Grid */}
@@ -31,16 +31,16 @@ const ExpandedModulesCovered = () => {
         {modules.map((module, index) => (
           <div
             key={index}
-            className="p-3 bg-gray-100 rounded-lg shadow-md transform transition-all hover:scale-105 cursor-pointer text-black"
+            className="p-3 bg-white rounded-lg shadow-md transform transition-all hover:scale-105 cursor-pointer text-black"
           >
-            <h3 className="text-lg text-blue-800 font-semibold mb-1">{module.title}</h3>
+            <h3 className="text-lg text-[]  font-semibold mb-1">{module.title}</h3>
             <p className="text-sm">{module.description}</p>
           </div>
         ))}
       </div>
 
       {/* Assistance Banner */}
-      <div className="mt-8 bg-gray-800 p-4 rounded-lg shadow-lg text-center text-white">
+      <div className="mt-8 bg-black text-white p-4 rounded-lg shadow-lg text-center ">
         <h3 className="text-2xl font-bold">Need Assistance with Your Assignments?</h3>
         <p className="text-md mt-2">Our experts are ready to guide you through your academic journey!</p>
         <a
