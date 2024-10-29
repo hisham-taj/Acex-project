@@ -7,10 +7,8 @@ const Header = () => {
   const [isCompanyOpen, setIsCompanyOpen] = useState(false);
   const [no, setNO] = useState(false);
 
-   // State to track scrolling
    const [isScrolled, setIsScrolled] = useState(false);
 
-   // Handle scroll to change header background
    useEffect(() => {
      const handleScroll = () => {
        const scrollTop = window.scrollY || document.documentElement.scrollTop;

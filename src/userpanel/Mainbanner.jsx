@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import "@splidejs/splide/css";
+// import "@splidejs/splide/css";
 
 const MainBanner = () => {
   const [isSmallScreen, setIsSmallScreen] = useState(false);
