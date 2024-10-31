@@ -1,26 +1,72 @@
-
 import React, { useState } from 'react';
-
+import { useNavigate } from 'react-router-dom';
+import axios from 'axios';
 
 function Login() {
-const [email,setEmail]=useState('')
-const [password,setPassword]=useState('')
+  const navigate = useNavigate();
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [error, setError] = useState('');
+
+  // Validation function
+  const validateForm = () => {
+    if (!email) {
+      setError('Email is required');
+      return false;
+    }
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(email)) {
+      setError('Invalid email format');
+      return false;
+    }
+    if (!password) {
+      setError('Password is required');
+      return false;
+    }
+    setError('');
+    return true;
+  };
+
+  const handleLogin = (e) => {
+    e.preventDefault();
+    const Data = { email, password };
+
+    if (!validateForm()) return; // Prevent form submission if validation fails
+
+    axios
+    .post("http://localhost:3000/admin/login", Data)
+    .then((res) => {
+      console.log("Success:", res.data);
+      setError("");
+      navigate("/admin");
+    })
+    .catch((err) => {
+      console.error("Error:", err);
+      if (err.response && err.response.data) {
+        setError(err.response.data.message || "An error occurred");
+      } else {
+        setError("Network error, please try again later.");
+      }
+    });
+  };
+
   return (
-    <div className=" w-full h-screen bg-cover bg-center  bg-[url('/images/bg-1.png')] flex items-center justify-center">
-       {/* Transparent box at the top for logo and text */}
-       <div className="absolute top-0 left-0 w-full bg-white bg-opacity-30 p-4 flex items-center justify-between">
+    <div className="w-full h-screen bg-cover bg-center bg-[url('/images/bg-1.png')] flex items-center justify-center">
+      <div className="absolute top-0 left-0 w-full bg-white bg-opacity-30 p-4 flex items-center justify-between">
         <div className="flex items-center">
-          <img src="/images/acex_logo_full-removebg-preview.png" alt="Logo" className=" w-24 " />
-          <h1 className="text-2xl font-bold text-black">Academic Centre for Excellence</h1>
+          <img src="/images/acex_logo_full-removebg-preview.png" alt="Logo" className="w-24" />
+          <h1 className="text-2xl max-md:text-xl font-bold text-black">Academic Centre for Excellence</h1>
         </div>
         <div>
-          <p className="text-gray-700">Solution for everything</p>
+          <p className="text-gray-700 max-sm:text-sm">Solution for everything</p>
         </div>
       </div>
 
       <div className="w-full max-w-md bg-opacity-10 bg-[#000000] flex items-center justify-center flex-col p-6 rounded-lg shadow-lg">
-        <form action='/signup' method='get' className='w-full bg-white p-6 rounded-lg'>
-          <h1 className='text-center text-xl font-bold mb-6'>Login</h1>
+        <form onSubmit={handleLogin} className="w-full bg-white p-6 rounded-lg">
+          <h1 className="text-center text-xl font-bold mb-6">Login</h1>
+
+          {error && <div className="text-red-500 text-center mb-4">{error}</div>}
 
           <input
             type="email"
@@ -47,16 +93,15 @@ const [password,setPassword]=useState('')
         </div>
         <div className="mt-4 flex justify-between text-sm text-gray-400">
           <button
-          onClick={() => navigate("/admin/signup")} 
-          className="hover:underline font-bold text-black bg-white py-1 px-2 rounded-lg"
-        >
-         New Admin? Register Here
-        </button>
-          </div>
+            onClick={() => navigate("/admin/signup")} 
+            className="hover:underline font-bold text-black bg-white py-1 px-2 rounded-lg"
+          >
+            New Admin? Register Here
+          </button>
+        </div>
       </div>
     </div>
   );
 }
 
 export default Login;
-
