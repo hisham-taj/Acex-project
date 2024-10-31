@@ -1,78 +1,152 @@
-import React, { useState } from 'react';
-import axios from 'axios';
-import '../App.css';
-import '../index.css';
+import React, { useState } from "react";
+import axios from "axios";
+import "../App.css";
+import "../index.css";
+import { useNavigate } from "react-router-dom";
+
 
 function SignUp() {
-  const [userName, setUserName] = useState('');
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  const [confirmPassword, setCPassword] = useState('');
-  const [error, setError] = useState('');
+
+  const navigate = useNavigate();
+  const [userName, setUserName] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [confirmPassword, setCPassword] = useState("");
+  const [error, setError] = useState("");
+
+  const validateForm = () => {
+    if (!userName) {
+      console.log("usrnm");
+
+      setError("Username is required");
+      return false;
+    }
+    if (userName.length < 3) {
+      setError("Username must be at least 3 characters");
+      return false;
+    }
+    if (!email) {
+      setError("Email is required");
+      return false;
+    }
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(email)) {
+      setError("Invalid email format");
+      return false;
+    }
+    if (!password) {
+      setError("Password is required");
+      return false;
+    }
+    if (password.length < 6) {
+      setError("Password must be at least 6 characters");
+      return false;
+    }
+    if (password !== confirmPassword) {
+      setError("Passwords do not match");
+      return false;
+    }
+    setError("");
+    return true;
+  };
 
   const handleSignup = (e) => {
     e.preventDefault();
     const Data = { userName, email, password, confirmPassword };
 
-    axios.post('http://localhost:9990/signup', Data)
-      .then(res => {
+    axios
+      .post("http://localhost:3000/admin/signup", Data)
+      .then((res) => {
         console.log("Success:", res.data);
+        setError("");
       })
-      .catch(err => {
+      .catch((err) => {
         console.error("Error:", err);
+        if (err.response && err.response.data) {
+          setError(err.response.data.message || "An error occurred");
+        } else {
+          setError("Network error, please try again later.");
+        }
       });
   };
 
   return (
-   
-    <div className="flex items-center justify-center min-h-screen bg-gradient-to-r from-gray-900 via-gray-700 to-gray-900 p-4">
-    <div className="w-full sm:w-2/3 md:w-1/2 lg:w-1/3 xl:w-1/4 2xl:w-1/5 bg-gray-800 p-6 rounded-lg shadow-lg">
-      <h1 className="text-xl font-semibold text-center text-white mb-4">Sign Up</h1>
-      {error && <div className="text-red-500 text-center mb-4">{error}</div>}
-  
-      <form onSubmit={handleSignup} className="space-y-4">
-        <input
-          type="text"
-          name="userName"
-          placeholder="Username"
-          className="w-full p-3 rounded-lg bg-gray-200 border border-gray-500 focus:outline-none focus:ring-2 focus:ring-gray-500"
-          onChange={(e) => setUserName(e.target.value)}
-        />
-        <input
-          type="email"
-          name="email"
-          placeholder="Email"
-          className="w-full p-3 rounded-lg bg-gray-200 border border-gray-500 focus:outline-none focus:ring-2 focus:ring-gray-500"
-          onChange={(e) => setEmail(e.target.value)}
-        />
-        <input
-          type="password"
-          name="password"
-          placeholder="Password"
-          className="w-full p-3 rounded-lg bg-gray-200 border border-gray-500 focus:outline-none focus:ring-2 focus:ring-gray-500"
-          onChange={(e) => setPassword(e.target.value)}
-        />
-        <input
-          type="password"
-          name="confirmPassword"
-          placeholder="Confirm Password"
-          className="w-full p-3 rounded-lg bg-gray-200 border border-gray-500 focus:outline-none focus:ring-2 focus:ring-gray-500"
-          onChange={(e) => setCPassword(e.target.value)}
-        />
-        <button className="w-full py-3 bg-gray-700 text-white rounded-lg hover:bg-gray-600 transition-all" type="submit">
-          Submit
+    <div className=" w-full h-screen bg-cover bg-center  bg-[url('/images/17973908.jpg')] flex flex-col">
+      {/* Transparent box at the top for logo and text */}
+      <div className=" w-full bg-white bg-opacity-30 p-4 flex items-center justify-between">
+        <div className="flex items-center">
+          <img
+            src="/images/acex_logo_full-removebg-preview.png"
+            alt="Logo"
+            className=" w-24 "
+          />
+          <h1 className="text-2xl max-md:text-lg font-bold text-black">
+            Academic Centre for Excellence
+          </h1>
+        </div>
+        <div>
+          <p className="text-gray-700 max-md:text-sm">
+            Solution for everything
+          </p>
+        </div>
+      </div>
+
+      <div className=" w-full h-full flex justify-center overflow-hidden items-center">
+        <div className="w-full  max-w-md max-md:w-[70%] max-md:h-[80%]  bg-opacity-10 bg-[#000000] flex items-center justify-center flex-col p-6 rounded-lg shadow-lg">
+          {error && (
+            <div className="text-red-500 text-center mb-4">{error}</div>
+          )}
+          <form onSubmit={handleSignup} className="space-y-4">
+            {" "}
+            <h1 className="text-center text-xl font-bold mb-6">Register</h1>
+            <input
+              type="text"
+              name="userName"
+              placeholder="Username"
+              className="w-full p-3 rounded-lg bg-gray-200 border border-gray-500 focus:outline-none focus:ring-2 focus:ring-gray-500"
+              onChange={(e) => setUserName(e.target.value)}
+            />
+            <input
+              type="email"
+              name="email"
+              placeholder="Email"
+              className="w-full p-3 rounded-lg bg-gray-200 border border-gray-500 focus:outline-none focus:ring-2 focus:ring-gray-500"
+              onChange={(e) => setEmail(e.target.value)}
+            />
+            <input
+              type="password"
+              name="password"
+              placeholder="Password"
+              className="w-full p-3 rounded-lg bg-gray-200 border border-gray-500 focus:outline-none focus:ring-2 focus:ring-gray-500"
+              onChange={(e) => setPassword(e.target.value)}
+            />
+            <input
+              type="password"
+              name="confirmPassword"
+              placeholder="Confirm Password"
+              className="w-full p-3 rounded-lg bg-gray-200 border border-gray-500 focus:outline-none focus:ring-2 focus:ring-gray-500"
+              onChange={(e) => setCPassword(e.target.value)}
+            />
+            <button
+              className="w-full py-3 bg-gray-700 text-white rounded-lg hover:bg-gray-600 transition-all"
+              type="submit"
+            >
+              Submit
+            </button>
+          </form>
+
+          <div className="mt-4 flex justify-between text-sm text-gray-400">
+          <button
+          onClick={() => navigate("/admin/login")} 
+          className="hover:underline font-bold text-black bg-white py-1 px-2 rounded-lg"
+        >
+          Already registered? Go to login page
         </button>
-      </form>
-  
-      <div className="mt-4 flex justify-between text-sm text-gray-400">
-        <button className="hover:underline">Login</button>
-        <button className="hover:underline">Forget Password</button>
+          </div>
+        </div>
       </div>
     </div>
-  </div>
-  
-    );
- }
+  );
+}
 
-    
 export default SignUp;

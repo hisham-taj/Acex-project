@@ -45,6 +45,14 @@ const [password,setPassword]=useState('')
         <div className="mt-4">
           <button className="text-sm text-blue-700 hover:underline">Forgot Password?</button>
         </div>
+        <div className="mt-4 flex justify-between text-sm text-gray-400">
+          <button
+          onClick={() => navigate("/admin/signup")} 
+          className="hover:underline font-bold text-black bg-white py-1 px-2 rounded-lg"
+        >
+         New Admin? Register Here
+        </button>
+          </div>
       </div>
     </div>
   );
