@@ -59,6 +59,7 @@ function SignUp() {
       .then((res) => {
         console.log("Success:", res.data);
         setError("");
+        navigate("/admin/login");
       })
       .catch((err) => {
         console.error("Error:", err);
@@ -91,8 +92,8 @@ function SignUp() {
         </div>
       </div>
 
-      <div className=" w-full h-full flex justify-center overflow-hidden items-center">
-        <div className="w-full  max-w-md max-md:w-[70%] max-md:h-[80%]  bg-opacity-10 bg-[#000000] flex items-center justify-center flex-col p-6 rounded-lg shadow-lg">
+      <div className=" w-full h-full flex justify-center  items-center">
+        <div className="w-full  max-w-md max-md:w-[70%] max-md:h-[75%]  bg-opacity-10 bg-[#000000] flex items-center justify-center flex-col p-6 rounded-lg shadow-lg">
           {error && (
             <div className="text-red-500 text-center mb-4">{error}</div>
           )}
@@ -131,7 +132,7 @@ function SignUp() {
               className="w-full py-3 bg-gray-700 text-white rounded-lg hover:bg-gray-600 transition-all"
               type="submit"
             >
-              Submit
+              Signup
             </button>
           </form>
 
@@ -143,6 +144,8 @@ function SignUp() {
           Already registered? Go to login page
         </button>
           </div>
+          <span>or</span>
+          <button className="bg-white text-blue-800 text-xl">Signup with Google</button>
         </div>
       </div>
     </div>
