@@ -3,12 +3,17 @@ import NavBar from "./navbar";
 import { Outlet, NavLink, useLocation } from "react-router-dom";
 import { MenuIcon } from "@heroicons/react/outline";
 
+
 function Admin() {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
   const menuRef = useRef(null);
   const buttonRef = useRef(null);
   const location = useLocation();
-  const isAdminPage = location.pathname === "/admin";
+  const isAdminPage = location.pathname === "/admin" || location.pathname === "/admin/";
+  const adminName = localStorage.getItem("adminName")
+  console.log(adminName);
+  
+  
 
   const toggleSidebar = () => {
     setIsSidebarOpen((prevState) => !prevState);
@@ -50,7 +55,7 @@ function Admin() {
           </button>
         </div>
         <div className="w-[50%] h-full flex items-center justify-end ">
-          <span className="text-sm text-black mr-3">Welcome Admin!!</span>
+          <span className="text-sm text-black mr-3">Welcome {adminName}!!</span>
         </div>
       </div>
 

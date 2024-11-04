@@ -1,14 +1,14 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
+import { jwtDecode } from 'jwt-decode'; 
 
-function Login() {
+function Login({setIsAuth}) {
   const navigate = useNavigate();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
 
-  // Validation function
   const validateForm = () => {
     if (!email) {
       setError('Email is required');
@@ -31,23 +31,34 @@ function Login() {
     e.preventDefault();
     const Data = { email, password };
 
-    if (!validateForm()) return; // Prevent form submission if validation fails
+    if (!validateForm()) return;
 
     axios
-    .post("http://localhost:3000/admin/login", Data)
-    .then((res) => {
-      console.log("Success:", res.data);
-      setError("");
-      navigate("/admin");
-    })
-    .catch((err) => {
-      console.error("Error:", err);
-      if (err.response && err.response.data) {
-        setError(err.response.data.message || "An error occurred");
-      } else {
-        setError("Network error, please try again later.");
-      }
-    });
+      .post("http://localhost:3000/admin/login", Data)
+      .then((res) => {
+        const { token } = res.data;
+        localStorage.setItem("token", res.data.token);
+        console.log('token stored',res.data.token);
+        
+        const decoded = jwtDecode(token);         
+        const adminName = decoded.userName;
+        localStorage.setItem("adminName", adminName);
+        console.log('decoded',decoded);
+        console.log('admin name : ',adminName);
+        console.log("Success:", res.data);
+        setIsAuth(true)
+        
+        setError("");
+        navigate("/admin");
+      })
+      .catch((err) => {
+        console.error("Error:", err);
+        if (err.response && err.response.data) {
+          setError(err.response.data.message || "An error occurred");
+        } else {
+          setError("Network error, please try again later.");
+        }
+      });
   };
 
   return (

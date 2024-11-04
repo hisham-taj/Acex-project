@@ -1,6 +1,6 @@
 import React from "react";
-import Button from "../commonComponents/button";
 import { Link } from "react-router-dom";
+import LogoutButton from "../adminLog/Logout";
 
 function NavBar() {
   return (
@@ -17,7 +17,7 @@ function NavBar() {
       </div>
       <div className="w-[20%]  flex justify-around items-center  ">
         <div className="w-full h-full flex justify-end items-center">
-          <Button text={"Sign Out"} />
+          <LogoutButton/>
         </div>
       </div>
     </div>
