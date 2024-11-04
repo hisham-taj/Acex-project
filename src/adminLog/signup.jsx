@@ -53,6 +53,7 @@ function SignUp() {
   const handleSignup = (e) => {
     e.preventDefault();
     const Data = { userName, email, password, confirmPassword };
+    if (!validateForm()) return;
 
     axios
       .post("http://localhost:3000/admin/signup", Data)
