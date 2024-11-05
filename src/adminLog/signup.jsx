@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import axios from "axios";
 import "../App.css";
 import "../index.css";
@@ -13,6 +13,13 @@ function SignUp() {
   const [password, setPassword] = useState("");
   const [confirmPassword, setCPassword] = useState("");
   const [error, setError] = useState("");
+
+  useEffect(()=>{
+    const token = localStorage.getItem('token')
+    if(token){
+      navigate('/admin');
+    }
+  })
 
   const validateForm = () => {
     if (!userName) {
@@ -145,8 +152,8 @@ function SignUp() {
           Already registered? Go to login page
         </button>
           </div>
-          <span>or</span>
-          <button className="bg-white text-blue-800 text-xl">Signup with Google</button>
+          {/* <span>or</span>
+          <button className="bg-white text-blue-800 text-xl">Signup with Google</button> */}
         </div>
       </div>
     </div>

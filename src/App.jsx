@@ -18,6 +18,7 @@ import MonitorProgress from "./request/monitorProgress";
 import ReceiveWork from "./request/receivework";
 import PlanDetails from "./pricing/planDetails";
 import Home from "./pages/Home";
+import { AdminContents } from "./adminPages/adminContents";
 import { useEffect, useState } from "react";
 
 function App() {
@@ -47,6 +48,7 @@ function App() {
             </PrivateRoute>
           }
         >
+           <Route index element={<AdminContents />} /> 
           <Route path="dashboard" element={<Dashboard />} />
           <Route path="orders" element={<Orders />} />
           <Route path="customers" element={<Customers />} />
