@@ -78,7 +78,7 @@ function Admin() {
             isSidebarOpen ? "blur-sm" : ""
           }`}
         >
-          {isAdminPage? <AdminContents/> : <Outlet />}
+          { <Outlet />}
           
         </div>
       </div>

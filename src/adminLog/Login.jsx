@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import { jwtDecode } from 'jwt-decode'; 
@@ -8,6 +8,13 @@ function Login({setIsAuth}) {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
+
+  useEffect(()=>{
+    const token = localStorage.getItem('token');
+    if(token){
+      navigate("/admin")
+    }
+  },[navigate])
 
   const validateForm = () => {
     if (!email) {
