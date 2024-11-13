@@ -35,6 +35,23 @@ const MainBanner = () => {
       : "-10% 0%, 100% 1%, 95% 0%, 1% 100%, 1% 90%, 100% 100%",
   };
 
+  const innerBoxBg = {
+    backgroundImage: `
+      url('/images/img_circle-additional-dark-016_wide.svg'),
+      url('/images/img_circle-additional-dark-016_wide.svg'),
+      url('/images/img_circle-theme-color.svg'),
+      url('/images/img_circle-additional-dark-016_wide.svg'),
+      url('/images/img_circle-theme-color.svg')
+      
+    `,
+    backgroundSize: isSmallScreen
+      ? "10vh, 10vh, 4vh, 10vh,4vh"
+      : "15vh, 15vh, 5vh, 5vh, 5vh",
+    backgroundPosition: isSmallScreen
+      ? "-10% 0%, 90% 1%, 90% 0%, 2% 90%, 2% 80%"
+      : "-10% 0%, 100% 1%, 95% 0%, 1% 100%, 1% 90%",
+  };
+
   return (
     <>
       <div
@@ -60,23 +77,23 @@ const MainBanner = () => {
             </p>
           </div>
         </div>
-        <div className="w-[80%] h-[39%] max-md:mt-5 max-md:h-[25%] bg-white flex">
-          <div className="w-[20%] max-md:w-[25%]  flex items-center">
+        <div
+          className="w-[70%] h-[30%] max-md:mt-5 max-md:h-[25%] bg-white rounded-xl flex flex-col bg-no-repeat animate-backgroundShift"
+          style={innerBoxBg}
+        >
+          <div className="w-[100%] h-[60%] flex items-center justify-center space-x-4">
             <img
-              className="h-[100%]"
-              src="/images/img_man-thinking.webp"
+              className="w-[5vh] "
+              src="/images/notebook-svgrepo-com.svg"
               alt=""
             />
-          </div>
-          <div className="w-[80%]  flex items-center justify-center flex-col">
-            <h1 className="text-black text-[12px] md:text-4xl font-heading font-bold">
-              Finding it challenging to navigate your assignment requirements?
+            <h1 className="text-black text-[12px] md:text-2xl font-heading font-bold text-center ">
+              ={">"} Transform Your Assignments, Elevate Your Future
             </h1>
-            <p className="font-heading text-[10px] md:text-xl text-black">
-              {" "}
-              Ask our experts for help and get it done in no time!
-            </p>
           </div>
+          <p className="font-heading text-[10px] md:text-xl text-black text-center mt-2">
+            Ask our experts for help and get it done in no time!
+          </p>
         </div>
       </div>
     </>

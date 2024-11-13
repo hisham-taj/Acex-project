@@ -1,4 +1,5 @@
-/** @type {import('tailwindcss').Config} */
+// tailwind.config.js
+
 export default {
   content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
@@ -10,8 +11,18 @@ export default {
       xl: "1440px",
     },
     fontFamily: {
-      sans: ['Montserrat', '-apple-system', 'BlinkMacSystemFont', '"Segoe UI"', 'Roboto', '"Helvetica Neue"', 'Arial', 'sans-serif'],
-      heading: [ 'Bebas Neue',
+      sans: [
+        'Montserrat',
+        '-apple-system',
+        'BlinkMacSystemFont',
+        '"Segoe UI"',
+        'Roboto',
+        '"Helvetica Neue"',
+        'Arial',
+        'sans-serif'
+      ],
+      heading: [
+        'Bebas Neue',
         '-apple-system',
         'BlinkMacSystemFont',
         '"Segoe UI"',
@@ -24,7 +35,8 @@ export default {
         'Apple Color Emoji',
         '"Segoe UI Emoji"',
         '"Segoe UI Symbol"',
-        '"Noto Color Emoji"',],
+        '"Noto Color Emoji"',
+      ],
     },
 
     extend: {
@@ -33,6 +45,22 @@ export default {
       },
       lineHeight: {
         'custom': '1.15',
+      },
+      animation: {
+        backgroundShift: 'bgShift 10s ease-in-out infinite', // Slower speed for smoother animation
+      },
+      keyframes: {
+        bgShift: {
+          '0%': { 
+            backgroundPosition: '-5% 90%, 100% 1%, 95% 0%, 50% 0%, 1% 110%' 
+          },
+          '50%': { 
+            backgroundPosition: '45% 50%, 55% 50%, 50% 50%, 50% 50%, 50% 50%' 
+          },
+          '100%': { 
+            backgroundPosition: '-5% 90%, 100% 1%, 95% 0%, 50% 0%, 1% 110%' 
+          },
+        },
       },
     },
   },
