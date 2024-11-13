@@ -1,5 +1,5 @@
 import React from "react";
-import WhyAcex from "../userpanel/whyacex";
+import WhyAcex from "../userpanel/GetInTouch";
 import MainBanner from "../userpanel/Mainbanner"
 import PricingSection from "../userpanel/price";
 import AssignmentHelpPage from "../userpanel/assignment";
