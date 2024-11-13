@@ -77,18 +77,24 @@ const MainBanner = () => {
             </p>
           </div>
         </div>
-        <div className="w-[70%] h-[30%] max-md:mt-5 max-md:h-[25%] bg-white rounded-xl flex flex-col bg-no-repeat animate-backgroundShift" style={innerBoxBg}>
-  <div className="w-[100%] h-[60%] flex items-center justify-center space-x-4">
-    <img className="w-[5vh] " src="/public/images/notebook-svgrepo-com.svg" alt="" />
-    <h1 className="text-black text-[12px] md:text-2xl font-heading font-bold text-center ">
-      ={">"} Transform Your Assignments, Elevate Your Future
-    </h1>
-  </div>
-  <p className="font-heading text-[10px] md:text-xl text-black text-center mt-2">
-    Ask our experts for help and get it done in no time!
-  </p>
-</div>
-
+        <div
+          className="w-[70%] h-[30%] max-md:mt-5 max-md:h-[25%] bg-white rounded-xl flex flex-col bg-no-repeat animate-backgroundShift"
+          style={innerBoxBg}
+        >
+          <div className="w-[100%] h-[60%] flex items-center justify-center space-x-4">
+            <img
+              className="w-[5vh] "
+              src="/images/notebook-svgrepo-com.svg"
+              alt=""
+            />
+            <h1 className="text-black text-[12px] md:text-2xl font-heading font-bold text-center ">
+              ={">"} Transform Your Assignments, Elevate Your Future
+            </h1>
+          </div>
+          <p className="font-heading text-[10px] md:text-xl text-black text-center mt-2">
+            Ask our experts for help and get it done in no time!
+          </p>
+        </div>
       </div>
     </>
   );
