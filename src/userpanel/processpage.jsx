@@ -19,11 +19,11 @@ const ProcessPage = () => {
           {/* Step 1 */}
           <Link to="/submitRequest" className="transform hover:scale-105 transition-transform duration-300"> {/* Link to Submit Request page */}
             <div className="bg-gradient-to-br from-yellow-100 to-orange-100 p-8 rounded-3xl shadow-lg text-center">
-              <img
+              {/* <img
                 src="https://via.placeholder.com/150"
-                alt="Submit Task"
+                // alt="Submit Task"
                 className="mx-auto mb-6 w-32 h-32 rounded-full object-cover"
-              />
+              /> */}
               <h2 className="text-2xl font-bold text-orange-700 mb-4">Submit Your Request</h2>
               <p className="text-gray-600">
                 Provide details about your task or project. Be as specific as
@@ -35,11 +35,11 @@ const ProcessPage = () => {
           {/* Step 2 */}
           <Link to="/monitorProgress" className="transform hover:scale-105 transition-transform duration-300"> {/* Link to Monitor Progress page */}
             <div className="bg-gradient-to-br from-purple-100 to-pink-100 p-8 rounded-3xl shadow-lg text-center">
-              <img
+              {/* <img
                 src="https://via.placeholder.com/150"
                 alt="Track Progress"
                 className="mx-auto mb-6 w-32 h-32 rounded-full object-cover"
-              />
+              /> */}
               <h2 className="text-2xl font-bold text-pink-700 mb-4">Monitor Progress</h2>
               <p className="text-gray-600">
                 Stay in the loop by tracking real-time updates and communicate
@@ -51,11 +51,11 @@ const ProcessPage = () => {
           {/* Step 3 */}
           <Link to="/receivework" className="transform hover:scale-105 transition-transform duration-300"> {/* Link to Receive Work page */}
             <div className="bg-gradient-to-br from-green-100 to-teal-100 p-8 rounded-3xl shadow-lg text-center">
-              <img
+              {/* <img
                 src="https://via.placeholder.com/150"
                 alt="Receive Work"
                 className="mx-auto mb-6 w-32 h-32 rounded-full object-cover"
-              />
+              /> */}
               <h2 className="text-2xl font-bold text-teal-700 mb-4">Receive Your Work</h2>
               <p className="text-gray-600">
                 Get your completed task, tailored to perfection, with feedback

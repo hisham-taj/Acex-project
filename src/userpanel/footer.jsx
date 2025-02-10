@@ -15,7 +15,7 @@ const FooterPage = () => {
   };
 
   return (
-    <footer className="bg-black text-[#E8EDFF] py-12">
+    <footer className="bg-black text-[#E8EDFF] bg-[url('/images/endless-constellation.svg')] py-12">
       <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
         {/* Contact Us */}
         <div>
