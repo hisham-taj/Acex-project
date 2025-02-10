@@ -41,8 +41,8 @@ function Login({setIsAuth}) {
     if (!validateForm()) return;
 
     axios
-      .post("http://localhost:3000/admin/login", Data)
-      .then((res) => {
+    axios.post(`${import.meta.env.VITE_API_URL}/admin/signup`, Data)
+    .then((res) => {
         const { token } = res.data;
         localStorage.setItem("token", res.data.token);
         console.log('token stored',res.data.token);

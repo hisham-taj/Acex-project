@@ -63,8 +63,8 @@ function SignUp() {
     if (!validateForm()) return;
 
     axios
-      .post("http://localhost:3000/admin/signup", Data)
-      .then((res) => {
+    axios.post(`${import.meta.env.VITE_API_URL}/admin/signup`, Data)
+    .then((res) => {
         console.log("Success:", res.data);
         setError("");
         navigate("/admin/login");

@@ -1,57 +1,85 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import ServicesDropdown from "./service";
 import CompanyDropdown from "./company";
 
 const Header = () => {
   const [isServicesOpen, setIsServicesOpen] = useState(false);
   const [isCompanyOpen, setIsCompanyOpen] = useState(false);
-  const [no, setNO] = useState(false);
+  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
 
-   const [isScrolled, setIsScrolled] = useState(false);
+  const servicesRef = useRef(null);
+  const companyRef = useRef(null);
 
-   useEffect(() => {
-     const handleScroll = () => {
-       const scrollTop = window.scrollY || document.documentElement.scrollTop;
-       setIsScrolled(scrollTop > 10); 
-     };
- 
-     window.addEventListener("scroll", handleScroll);
- 
-     return () => {
-       window.removeEventListener("scroll", handleScroll);
-     };
-   }, []);
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollTop = window.scrollY || document.documentElement.scrollTop;
+      setIsScrolled(scrollTop > 10);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
+  // Close dropdowns when clicking outside
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (
+        servicesRef.current &&
+        !servicesRef.current.contains(event.target)
+      ) {
+        setIsServicesOpen(false);
+      }
+      if (companyRef.current && !companyRef.current.contains(event.target)) {
+        setIsCompanyOpen(false);
+      }
+    };
+
+    document.addEventListener("mousedown", handleClickOutside);
+
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, []);
 
   return (
     <>
-      <div className="bg-white">
+      <div className="bg-white w-full">
         <nav
-          className={`w-full  shadow-md fixed top-0 left-0 z-50 h-[12vh] transition-all duration-300 ${
+          className={`w-full shadow-md fixed z-50 h-[12vh] transition-all duration-300 ${
             isScrolled ? "bg-white text-black" : "bg-[#2D2D2C] text-white"
           }`}
         >
-          <div className=" container h-[12vh] max-md:h-[10vh]  flex justify-between items-center py-4">
-            <div className="w-[10%] h-full  flex items-center">
+          <div className="container w-full h-[12vh] max-md:h-[10vh] flex justify-between items-center py-4">
+            <div className="w-[10%] h-full flex items-center">
               <img
                 src="/images/acex_logo_full-removebg-preview.png"
                 alt="Logo"
                 className="w-[70%]"
               />
             </div>
-
-            <div className="flex space-x-[120px] max-md:hidden">
+          
+            {/* Hamburger Menu for Mobile */}
+            <button
+              className="md:hidden text-xl "
+              onClick={() => setIsSidebarOpen(!isSidebarOpen)}
+            >
+              ☰
+            </button>
+          
+            {/* Main Navigation */}
+            <div className="hidden md:flex space-x-[120px]">
               <a href="#" className="">
                 Home
               </a>
 
               {/* Services Dropdown */}
-              <div className="relative">
+              <div ref={servicesRef} className="relative">
                 <button
-                  onMouseEnter={() => setIsServicesOpen(true)}
-                  onClick={() => setNO(true)}
-                  onMouseLeave={() => {
-                    if (!no) setIsServicesOpen(false);
-                  }}
+                  onClick={() => setIsServicesOpen(!isServicesOpen)}
                   className=""
                 >
                   Services
@@ -62,10 +90,9 @@ const Header = () => {
               </div>
 
               {/* Company Dropdown */}
-              <div className="relative">
+              <div ref={companyRef} className="relative">
                 <button
-                  onMouseEnter={() => setIsCompanyOpen(true)}
-                  onMouseLeave={() => setIsCompanyOpen(false)}
+                  onClick={() => setIsCompanyOpen(!isCompanyOpen)}
                   className=""
                 >
                   Company
@@ -83,18 +110,40 @@ const Header = () => {
               </a>
             </div>
 
-            <div className="flex items-center space-x-4 max-xl:hidden">
-              <input
-                type="text"
-                placeholder="Search..."
-                className="border rounded-md px-4 py-1 text-sm"
-              />
-              <button className="bg-[#7191E6] text-white px-4 py-2 rounded-md hover:bg-blue-800">
-                Login
-              </button>
+            {/* Search & Login */}
+            <div className="hidden md:flex items-center space-x-4">
+              
             </div>
           </div>
         </nav>
+
+        {/* Sidebar for Mobile */}
+        {isSidebarOpen && (
+          <div className="fixed top-0 left-0 w-[70%] h-full bg-[#2D2D2C] text-white z-50 flex flex-col p-6 shadow-lg">
+            <button
+              className="self-end text-2xl mb-4"
+              onClick={() => setIsSidebarOpen(false)}
+            >
+              ✖
+            </button>
+            <a href="#" className="mb-4">
+              Home
+            </a>
+            <a href="#" className="mb-4">
+              Services
+            </a>
+            <a href="#" className="mb-4">
+              Company
+            </a>
+            <a href="#" className="mb-4">
+              Blogs
+            </a>
+            <a href="#" className="mb-4">
+              Pricing
+            </a>
+            
+          </div>
+        )}
       </div>
     </>
   );
