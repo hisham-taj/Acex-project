@@ -62,7 +62,7 @@ function SignUp() {
     const Data = { userName, email, password, confirmPassword };
     if (!validateForm()) return;
 
-    axios
+    
     axios.post(`${import.meta.env.VITE_API_URL}/admin/signup`, Data)
     .then((res) => {
         console.log("Success:", res.data);

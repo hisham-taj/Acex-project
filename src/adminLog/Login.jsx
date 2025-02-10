@@ -40,7 +40,7 @@ function Login({setIsAuth}) {
 
     if (!validateForm()) return;
 
-    axios
+    
     axios.post(`${import.meta.env.VITE_API_URL}/admin/login`, Data)
     .then((res) => {
         const { token } = res.data;
