@@ -1,7 +1,7 @@
 import React from "react";
 
 const WhyAcex = () => {
-  const phone = "919544121458";
+  const phone = "9544121458";
 
   return (
     <div className="w-[100%] h-[70vh] max-md:50vh container mx-auto mt-5 bg-[#F3F3F3] flex items-center justify-center bg-no-repeat"
@@ -27,7 +27,7 @@ const WhyAcex = () => {
         </div>
         <div className="w-full h-[30%]  flex justify-center">
           <a
-            href={`https://wa.me/${phone}}`} 
+            href={`https://wa.me/${phone}`} 
             target="_blank"
             rel="noopener noreferrer"
           >

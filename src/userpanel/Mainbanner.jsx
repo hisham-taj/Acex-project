@@ -45,7 +45,7 @@ const MainBanner = () => {
       
     `,
     backgroundSize: isSmallScreen
-      ? "10vh, 10vh, 4vh, 10vh,4vh"
+      ? "10vh, 10vh, 4vh, 3vh,4vh"
       : "15vh, 15vh, 5vh, 5vh, 5vh",
     backgroundPosition: isSmallScreen
       ? "-10% 0%, 90% 1%, 90% 0%, 2% 90%, 2% 80%"
