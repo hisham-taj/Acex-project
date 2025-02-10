@@ -2,7 +2,8 @@ import React from 'react';
 
 const SalientFeatures = () => {
   return (
-    <div className="bg-black bg-[url('images/endless-constellation.svg')] text-white p-8 rounded-lg shadow-lg max-w-5xl mx-auto mt-12">
+    <div className="bg-black bg-[url('/images/endless-constellation.svg')] text-white p-8 rounded-lg shadow-lg max-w-5xl mx-auto mt-12">
+
       <h2 className="text-3xl font-bold text-center  mb-6">Salient Features</h2>
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
         

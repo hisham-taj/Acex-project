@@ -1,7 +1,7 @@
 import React from "react";
 import FooterPage from "./footer";
 import { Outlet } from "react-router-dom";
-import Header from "./header";
+import Header from './Header'
 
 const AppLayout = () => {
   return (
